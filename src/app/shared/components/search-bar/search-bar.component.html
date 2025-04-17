@@ -1,0 +1,11 @@
+<form [formGroup]="searchForm" class="search-container">
+  <div class="search-input-container">
+    <input type="text" formControlName="searchInput" placeholder="Buscar Pokémon por nombre..." class="search-input"
+      aria-label="Buscar Pokémon">
+    <button type="button" class="clear-btn" (click)="clearSearch()" ngIf="searchForm.get('searchInput')?.value"
+      aria-label="Limpiar búsqueda">
+      ✕
+    </button>
+  </div>
+</form>
+
