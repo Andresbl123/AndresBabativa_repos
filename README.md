@@ -1,9 +1,8 @@
 # ProyectoPersonalesAngularPokemosApi
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 19.2.7.
 
-
-### Descripción de Carpetas y Archivos Relevantes
+## Descripción de Carpetas y Archivos Relevantes
 
 - **`src/`**: Contiene el código fuente principal de la aplicación.
   - **`app/`**: Componentes principales de la aplicación.
@@ -17,21 +16,38 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## Requisitos Previos
 
 Asegúrate de tener instalados los siguientes programas:
-
 - [Node.js](https://nodejs.org/) (versión 14 o superior)
 - [Angular CLI](https://angular.io/cli) (versión 15 o superior)
 
 ## Instalación
 
 1. Clona este repositorio en tu máquina local:
-
    ```bash
    git clone https://github.com/Andresbl123/AndresBabativa_repos.git
    cd proyectoPersonales-Angular-PokemosApi
+   ```
 
-2. Arrancar el proyecto:
+2. Instala las dependencias y arranca el proyecto:
+   ```bash
    npm install
    npm run start
+   ```
 
-3. Documentacion Components
+3. Para ver la documentación de los componentes:
+   ```bash
    npm run storybook
+   ```
+
+## Características
+
+- Interfaz de usuario para explorar la API de Pokémon
+- Visualización detallada de información de cada Pokémon
+- Componentes reutilizables documentados con Storybook
+
+## Tecnologías Utilizadas
+
+- Angular 19
+- TypeScript
+- RxJS
+- Storybook
+- API de Pokémon
