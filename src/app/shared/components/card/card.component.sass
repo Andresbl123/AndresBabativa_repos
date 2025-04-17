@@ -1,0 +1,64 @@
+@use 'variables' as *
+.card
+  background-color: $color-bg-card
+  border-radius: 8px
+  box-shadow: $shadow-card
+  padding: 1.5rem
+  cursor: pointer
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  height: 100%
+  display: flex
+  flex-direction: column
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: $shadow-elevated
+
+  &__header
+    margin-bottom: 1rem
+
+    h3
+      margin-top: 0
+      color: $color-text-primary
+
+  &__content
+    flex-grow: 1
+    color: $color-text-secondary
+
+  &__footer
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 1rem
+    padding-top: 1rem
+    border-top: 1px solid $color-border-card
+
+.card__image
+  width: 200px
+  height: auto
+  align-content: center
+  border-radius: 8px
+  margin: 0
+  object-fit: cover
+  transition: transform 0.3s ease
+  &:hover
+    transform: scale(1.05)
+    box-shadow: $shadow-elevated
+  @media (max-width: 768px)
+    width: 100%
+    height: auto
+    margin: 0
+    object-fit: cover
+    transition: transform 0.3s ease
+    &:hover
+      transform: scale(1.05)
+      box-shadow: $shadow-elevated
+
+.card__content
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  text-align: center
+  padding: 1rem
