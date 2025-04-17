@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'variables' as *
+
+body
+  background-color: $color-bg-main
+  color: $color-text-primary
+  font-family: 'Inter', 'Roboto', sans-serif
+  margin: 0
+  padding: 32px
+  transition: background-color 0.3s ease
+
+h1, h2, h3, h4, h5, h6
+  color: $color-text-primary
+  font-weight: 600
+  margin-bottom: 1rem
+
+p
+  color: $color-text-secondary
+  line-height: 1.6
+  margin-bottom: 1rem
