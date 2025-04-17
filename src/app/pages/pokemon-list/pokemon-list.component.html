@@ -1,0 +1,26 @@
+<form action="">
+  <app-search-bar (searchTerm)="onSearch($event)"></app-search-bar>
+</form>
+<div class="pokemon-list">
+  @if (loading) {
+  <div class="loading">Cargando pokémons...</div>
+  } @else if (error) {
+  <div class="error">{{ error }}</div>
+  } @else {
+  @for (pokemon of filteredPokemonData; track pokemon.id) {
+  <app-card [name]="pokemon.name" [imageUrl]="pokemon.image" [id]="pokemon.id">
+  </app-card>
+
+  }
+  @empty {
+  <h3>No hay pokémon disponibles</h3>
+  }
+  }
+ 
+</div>
+<div class="containerButton">
+  <app-button [variant]="!previusPage?'disabled': 'primary'" [disabled]="!previusPage" [label]="'Previous'" (action)="loadPrevious()"></app-button>
+  <app-button [variant]="!nextPage?'disabled': 'primary'" [disabled]="!nextPage" [label]="'Next'" (action)="loadNext()"></app-button>
+
+</div>
+ 

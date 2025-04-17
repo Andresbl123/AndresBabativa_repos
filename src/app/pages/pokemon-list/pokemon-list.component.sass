@@ -1,0 +1,15 @@
+.pokemon-list
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: 20px
+  padding: 20px
+
+.containerButton
+  display: flex
+  justify-content: space-between
+  margin-top: 20px
+  padding: 0 20px
+
+  @media (max-width: 768px)
+    grid-template-columns: 1fr // Cambia a 1 columna en pantallas pequeñas
+    gap: 15px
