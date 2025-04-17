@@ -1,0 +1,87 @@
+<p>card-details works!</p>
+
+<div class="pokemon-detail-container">
+  <div *ngIf="loading" class="loading">
+    Cargando detalles del Pokémon...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error" class="pokemon-card">
+    <div class="pokemon-header">
+      <div class="pokemon-id"># {{ pokemonDetails?.id || '001' }}</div>
+      <h1 class="pokemon-name">{{ pokemonDetails?.name || 'Pikachu' | titlecase }}</h1>
+    </div>
+
+    <div class="pokemon-image">
+      <img
+        [src]="pokemonDetails?.sprites?.front_default || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'"
+        [alt]="pokemonDetails?.name || 'Pikachu'">
+    </div>
+
+    <div class="pokemon-info">
+      <div class="info-section">
+        <h2>Tipos</h2>
+        <div class="type-badges">
+          <span *ngFor="let type of pokemonDetails?.types || [{'type': {'name': 'electric'}}]"
+            class="type-badge {{ type.type.name }}">
+            {{ type.type.name | titlecase }}
+          </span>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Características</h2>
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-label">Peso:</span>
+            <span class="stat-value">{{ (pokemonDetails?.weight || 60) / 10 }} kg</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Altura:</span>
+            <span class="stat-value">{{ (pokemonDetails?.height || 4) / 10 }} m</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Sprites</h2>
+        <div class="sprites-gallery">
+          <div class="sprite-item" *ngIf="pokemonDetails?.sprites?.front_default">
+            <img [src]="pokemonDetails?.sprites?.front_default" alt="Frente">
+            <span>Frente</span>
+          </div>
+          <div class="sprite-item" *ngIf="pokemonDetails?.sprites?.back_default">
+            <img [src]="pokemonDetails?.sprites?.back_default" alt="Espalda">
+            <span>Espalda</span>
+          </div>
+          <div class="sprite-item" *ngIf="pokemonDetails?.sprites?.front_shiny">
+            <img [src]="pokemonDetails?.sprites?.front_shiny" alt="Shiny frente">
+            <span>Shiny</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Movimientos</h2>
+        <div class="moves-list">
+          <span *ngFor="let move of pokemonDetails?.moves?.slice(0, 5) || 
+                 [{'move': {'name': 'thunder-shock'}}, {'move': {'name': 'quick-attack'}}]" class="move-item">
+            {{ move.move.name.replace('-', ' ') | titlecase }}
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <app-button
+      [variant]="'primary'"
+      [label]="'Volver a la lista'"
+      (action)="goBack()"
+      class="back-button">
+    </app-button>
+    <!-- <button class="back-button" (click)="goBack()">Volver a la lista</button> -->
+    
+  </div>
+</div>
